@@ -1,7 +1,10 @@
 # Overview
 
-This is a Kotlin multiplatform template project used to generate and deploy a natively compiled AWS lambda function
-using a custom runtime.
+This is a Kotlin multiplatform template project used to generate and deploy a natively compiled AWS Lambda function
+using a custom runtime. Using a natively compiled image greatly improves startup and execution time, and reduces memory
+consumption, relative to relying on the Java Virtual Machine. By using
+the [graalvm-native compiler](https://www.graalvm.org/reference-manual/native-image/), the Lambda function can continue
+to utilize the AWS Java SDK and other JVM libraries.
 
 It includes the following:
 
@@ -15,7 +18,9 @@ It includes the following:
 
 ### 1. Install the [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/)
 
-### 2. Build and deploy the lambda function to AWS
+### 2. Install [Docker](https://www.docker.com/)
+
+### 3. Build and deploy the lambda function to AWS
 
 `cd deploy`
 
@@ -31,7 +36,7 @@ where `<awsprofile>` should be replaced with
 the [profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
 you wish to use for deploying to AWS.
 
-When a prompt comes up asking if you wish to deploy the changes, select 'y'.
+When a prompt displays asking if you wish to deploy the changes, select 'y'.
 
 # Testing
 
@@ -40,9 +45,10 @@ like the below image:
 
 ![](docs/img1.png)
 
-For Template, use hello-world (should be selected by default), and press the Test button.
+For Template, use hello-world (it should be selected by default), and press the Test button.
 
-The lambda function will return the String "Hello, world!" and reported by the AWS console like in the below image:
+The lambda function will return the String "Hello, world!" and is reported by the AWS console as shown in the below
+image:
 
 ![](docs/img2.png)
 
